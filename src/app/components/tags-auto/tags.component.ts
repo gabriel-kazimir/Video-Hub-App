@@ -6,6 +6,8 @@ import { AutoTagsService, WordAndFreq } from './autotags.service';
 import { ImageElementService } from './../../services/image-element.service';
 
 import { slowFadeIn, donutAppear, metaAppear } from '../../common/animations';
+import { TranslateLoader, TranslateService, TranslateStore } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-tags-component',
@@ -14,7 +16,8 @@ import { slowFadeIn, donutAppear, metaAppear } from '../../common/animations';
               '../../fonts/icons.scss',
               '../wizard-button.scss',
               'tags.component.scss'],
-  animations: [slowFadeIn, donutAppear, metaAppear]
+  animations: [slowFadeIn, donutAppear, metaAppear],
+  providers: [AutoTagsService, AutoTagsSaveService, TranslateService, TranslateStore/*, TranslateLoader*/]
 })
 export class TagsComponent implements OnInit, OnDestroy {
 
@@ -40,14 +43,22 @@ export class TagsComponent implements OnInit, OnDestroy {
   showingStatusMessage = false;
 
   minimumFrequency = 0;
+  title = "Tags";
+
 
   constructor(
     public autoTagsSaveService: AutoTagsSaveService,
     public imageElemetService: ImageElementService,
     public tagsService: AutoTagsService,
-  ) {}
+  ) {
+    this.title = "Tags"
+  }
+
+  
 
   ngOnInit(): void {
+
+    this.title = 'Tags'
 
     this.tagsService.generateAllTags(this.imageElemetService.imageElements, this.hubName).then(() => {
       setTimeout(() => {

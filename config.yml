@@ -1,0 +1,25 @@
+stages:
+  - Build
+  - Test
+
+.build_template: &build_template
+  stage: Build
+
+.build_dev:
+  <<: *build_template
+  tags:
+    - 
+  script:
+    - npm install
+    - npm start
+
+.test_template: &test_template
+  stage: Test
+
+.test_dev:
+  <<: *test_template
+  tags:
+    - 
+  script:
+    - npm test
+

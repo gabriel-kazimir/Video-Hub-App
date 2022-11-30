@@ -7,6 +7,8 @@ import { ElectronService } from './providers/electron.service';
 })
 export class AppComponent {
 
+  title = 'video-hub-app';
+
   constructor(
     public electronService: ElectronService
   ) {
