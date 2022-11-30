@@ -7,6 +7,7 @@ import { Pipe } from '@angular/core';
 export class AutoTagSortPipe implements PipeTransform {
 
   transform(allTags: any, sort: boolean): string[] {
+
     
     if (sort) {
       let sortedTags: string[];
