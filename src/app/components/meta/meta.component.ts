@@ -14,12 +14,15 @@ import type { StarRating, ImageElement } from '../../../../interfaces/final-obje
 import type { TagEmit, RenameFileResponse } from '../../../../interfaces/shared-interfaces';
 
 import {SettingsButtons } from '../../common/settings-buttons';
+import { SourceFolderService } from '../statistics/source-folder.service';
+import { AutoTagSortPipe }  from '../../pipes/auto-tag-sort.pipe';
 
 
 @Component({
   selector: 'app-meta-item',
   templateUrl: './meta.component.html',
-  styleUrls: [ './meta.component.scss' ]
+  styleUrls: [ './meta.component.scss' ],
+  providers: [ElectronService, FilePathService, SourceFolderService, ManualTagsService, AutoTagSortPipe],
 })
 export class MetaComponent implements OnInit, OnDestroy {
 
@@ -55,6 +58,7 @@ export class MetaComponent implements OnInit, OnDestroy {
 
   sortAutoTags = SettingsButtons['sortAutoTags'].toggled;
 
+
   constructor(
     private cd: ChangeDetectorRef,
     public electronService: ElectronService,
@@ -62,7 +66,10 @@ export class MetaComponent implements OnInit, OnDestroy {
     public imageElementService: ImageElementService,
     public manualTagsService: ManualTagsService,
     public sanitizer: DomSanitizer,
+    public autoTagSortPipe: AutoTagSortPipe
   ) { }
+
+  title = 'Meta';
 
   ngOnInit() {
     this.starRatingHack = this.star;
