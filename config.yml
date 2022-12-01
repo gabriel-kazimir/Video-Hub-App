@@ -15,6 +15,7 @@ env:
 
 jobs:
   test-jest:
+  runs-on: ubuntu-latest
     
     strategy:
       matrix:
