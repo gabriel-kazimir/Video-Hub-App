@@ -1,7 +1,6 @@
 import { AutoTagSortPipe } from './auto-tag-sort.pipe';
 
 describe('AutoTagSortPipe', () => {
-    
     const pipe = new AutoTagSortPipe();
    
     it('Should create an instance', () => {
