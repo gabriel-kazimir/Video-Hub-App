@@ -82,7 +82,7 @@
     "@angular/platform-browser-dynamic": "14.2.8",
     "@angular/router": "14.2.8",
     "@types/jest": "^29.2.3",
-    "@types/node": "18.11.9",
+    "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "5.42.0",
     "@typescript-eslint/parser": "5.42.0",
     "electron": "^21.3.1",
