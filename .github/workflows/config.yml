@@ -1,4 +1,4 @@
-name: Build & Test
+name: "Build & Test"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -15,7 +15,7 @@ env:
 
 jobs:
   test-jest:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     
     strategy:
       matrix:
