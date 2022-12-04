@@ -10,7 +10,6 @@
 /remote
 /.idea
 
-*.js
 *.js.map
 *.log
 
